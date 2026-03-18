@@ -311,6 +311,9 @@ screen navigation():
 
         textbutton _("Preferences") action ShowMenu("preferences")
 
+        textbutton _("Achievements") action ShowMenu("achievements")
+
+
         if _in_replay:
 
             textbutton _("End Replay") action EndReplay(confirm=True)
