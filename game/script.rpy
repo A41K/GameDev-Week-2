@@ -6,20 +6,70 @@ default trust = 0
 init python:
     achievement.register("First Theft")
     achievement.register("Independent")
+    achievement.register("Lucky Guess")
 
 default player_name = "Player"
-define P = Character("[player_name]")
+
+image side player = "images/Player.png"
+image side brother = "images/Brother.png"
+image side teacher = "images/Teacher.png"
+image side person = "images/Person.png"
+image side ashley = "images/Ashley.png"
+image side shane = "images/Shane.png"
+
+
+define P = Character("[player_name]", image="player")
 define skip = Character("TIMESKIP", color="#ff00ff")
-define B = Character("Brother", color="#0000ff")
+define B = Character("Brother", color="#0000ff", image="brother")
 define Officer = Character("Officer", color="#008000")
-define Teacher = Character("Teacher", color="#606010")
-define Person = Character("Person", color="#901022")
-define Boss = Character("Nathan")
-define S = Character("Shane", color="#109090")
+define Teacher = Character("Teacher", color="#606010", image="teacher")
+define Person = Character("Person", color="#901022", image="person")
+define Boss = Character("Ashley", image="ashley")
+define S = Character("Shane", color="#109090", image="shane")
 define shrug = Character("???")
+define I = Character("Ivy", color="#905090", image="ashley")
+define ran = Character("Somebody")
 
 
 define N = Character("Narrator", color="#808080")
+
+image bar:
+    "images/bar.jpg"
+    zoom 1
+    
+image museum:
+    "images/museum.jpg"
+    zoom 1
+
+image house:
+    "images/house.jpg"
+    zoom 1
+
+image school:
+    "images/school.jpg"
+    zoom 1
+
+image auction:
+    "images/auction.avif"
+    zoom 1
+
+image schoolroom:
+    "images/schoolroom.jpg"
+    zoom 1
+
+image baroutside:
+    "images/baroutsside.avif"
+    zoom 1
+
+image outsideauction:
+    "images/outsideauction.jpg"
+    zoom 1
+
+image backroom:
+    "images/backroom.jpg"
+    zoom 1
+
+
 
 label start:
 
@@ -47,7 +97,10 @@ label Intro:
 
 label Incindent:
 
+
     skip "ACT 0 - THE INCIDENT 10 YEARS BEFORE"
+
+    scene museum
 
     P "Catch me *panting*"
 
@@ -79,6 +132,8 @@ label Incindent:
 
     N "Later back at school"
 
+    scene school
+
     Teacher "Cole this was your last strike. Pack up your bags you are expelled"
 
     P "No, you can't just expel him"
@@ -86,6 +141,8 @@ label Incindent:
     Teacher "Say your goodbyes and be happy that I didn't expel you too"
 
     N "You go up to your brother"
+
+    scene schoolroom
 
     B "[player_name] everything will be fine okay?"
 
@@ -102,6 +159,9 @@ label ACT1:
     skip "ACT 1 - TRUST 10 YEARS LATER"
 
     N "You're currently on the street, listening to music and walking to your job in a bar"
+
+    scene bar
+
     N "You get in 15 minutes late"
 
     Boss "Welcome [player_name] the late, great and definietly fired"
@@ -126,6 +186,8 @@ label ACT1:
 
     P "Usual girls probably open cause it's daddy's money"
     N "You noticed the necklace around her neck so you go out"
+
+    scene baroutside
 
     N "She's trying to find where she wants to go on her phone"
     P "Want some help around? I live nearby"
@@ -159,6 +221,9 @@ label home:
     P "My pleasure miss"
 
     N "You go back inside. A few hours later your shift ends so you pack up and go home"
+
+    scene house
+
     N "You get to your houses door, but you notice it's already unlocked"
 
     N "You see a silhouette of a person with the necklace you stole around his neck"
@@ -322,9 +387,9 @@ label plan:
 
     N "You needed box cutters, a tux and a hamster????"
 
-    jump auction
+    jump beforeauction
 
-label auction:
+label beforeauction:
     S "I got you your stuff, but why did you need a hamster?"
 
     P "It's for you cause you look lonely"
@@ -333,10 +398,231 @@ label auction:
 
     P "Yeah hope you will take good care of it"
 
-    S "jesus christ *he mutter*"
+    S "Jesus christ *he mutters*"
 
     N "We drive to the auction place"
 
-    S "Got everything ready?"
+    jump auction
 
-    P "Yes"
+label auction:
+
+    scene outsideauction
+
+    S "Well, here we are. You know your job, right?"
+
+    P "Yes. The lame one"
+
+    S "Like I said your a rookie. You couldn't do this, I could in my sleep"
+
+    P "Yeah Yeah just shut up"
+
+    N "We get out of the car and walk inside the auction"
+
+    scene auction
+
+    P "Wow this place is huge"
+
+    S "Eyes on the ball okay?"
+
+    S "We don't have much time. Somebody who has a lot of money also wants this"
+
+    P "Ahhh okay okay. Who? "
+
+    S "Not important"
+
+    N "We both get a drink and stand near the bar"
+
+    N "Two girls are eyeing us suspiciously"
+
+    P "Look, that girl is definietly wants something from me"
+
+    S "Nope, I know her and I think you should walk away. Don't get involved"
+
+    N "You walk away, but stay close."
+
+    S "Well if it isn't the infamous Ivy"
+
+    I "Well if it isn't the infamous asshole Shane"
+
+    I "What are you doing here?"
+
+    I "Oh wait I know. You need something like usual. Or more like stealing it"
+
+    S "This time is different"
+
+    I "You always say that sweetheart"
+
+    S "*sighs* I just came to watch something very historical be sold"
+
+    N "Meanwhile those two are chatting"
+
+    P "Okay okay you got this"
+
+    N "Two guards walk by"
+
+    ran "Yknow todays our big shift"
+
+    ran "Yeah it is. We should up our game"
+
+    N "you slip behind them back into the backroom"
+
+    scene backroom
+
+    P "*exhale* okay so"
+
+    N "You get the wire cutters out"
+
+    N "You open the tool box and see 3 wires"
+
+    P "Fuck I studied for this"
+
+    N "Shane speaks into the ear piece"
+
+    S "Cut the right one. I don't have this much money"
+
+    N "You can hear in the background"
+
+    ran "The man in the back with 2.5 million"
+
+    P "Okay okay Im on it"
+
+    $ correct_wire = renpy.random.choice(['green', 'blue', 'red'])
+
+    menu:
+        "You have 3 wires. Green, Blue, Red"
+
+        "Green":
+            if correct_wire == 'green':
+                jump wire_success
+            else:
+                jump wire_failure
+
+        "Blue":
+            if correct_wire == 'blue':
+                jump wire_success
+            else:
+                jump wire_failure
+
+        "Red":
+            if correct_wire == 'red':
+                jump wire_success
+            else:
+                jump wire_failure
+
+label wire_success:
+    $ achievement.grant("Lucky Guess")
+    $ achievement.sync()
+    show screen achievement_popup("Lucky Guess")
+    P "Phew... I think that was the right one."
+
+    S "Good job. You had a 33%% for this"
+
+    P "Im a lucky person yknow"
+
+    S "Don't glaze yourself the job isn't done"
+
+    S "This is only the half of it"
+
+    P "Okay I'll try to get out"
+
+
+    jump after_cut
+
+label wire_failure:
+    P "Shit shit shit"
+
+    S "Well fuck"
+
+    P "What now?"
+
+    S "We improvize like you do in this job"
+
+    P "Okay I'll try to get out"
+
+    jump after_cut
+
+label after_cut:
+
+    N "Oh, but it's not that easy for you. "
+    N "Two guys surround you"
+
+    P "Well fuck"
+
+    ran "Come here you fucker"
+
+    N "You start running as fast you can"
+
+    scene auction
+
+    menu:
+        "Where will you run"
+
+        "Left":
+            N "You ran left and bumped into one of them"
+            N "He grabbed you and started dragging you away, but you got away"
+
+            P "Fuck you"
+
+            ran "COME HERE"
+
+            N "You ran and ran"
+
+            jump lastpart
+
+        "Right":
+            N "You ran right and bumped into one of them"
+            N "He grabbed you and started dragging you away, but you got away"
+
+            P "Fuck you"
+
+            ran "COME HERE"
+
+            N "You ran and ran"
+            
+            jump lastpart
+
+        "Jump":
+            N "You jumped across and grabbed onto the chandelier"
+            N "They couldn't catch you and you grabbed everyones attention"
+
+            S "Got job you got everyones attention"
+
+            P "Can you help me yknow"
+
+            P "I will die if i fall down"
+
+            N "Silence"
+
+            P "Fuck"
+
+            jump lastpart
+
+
+label lastpart:
+    N "You finally got away"
+
+    P "I'm coming Shane"
+
+    N "Meanwhile Shane got the key"
+
+    N "You two meet outside in a car"
+
+    scene outsideauction
+
+    P "We got it"
+
+    S "Yes we did"
+
+    S "Good job"
+
+    P "Good job to you too"
+
+    P "Well what now?"
+
+    skip "END OF ACT 1"
+    skip "There are different choices and achivements if you want to get them."
+    skip "Thank you for playing"
+
+    
+
+

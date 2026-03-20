@@ -35,7 +35,20 @@ screen achievements():
                             text "Independent (Locked)" color "#808080" size 30
                             text "???" size 22
 
-## Achievement Notification Screen
+            frame:
+                padding (20, 20)
+                xfill True
+                
+                hbox:
+                    spacing 20
+                    vbox:
+                        if achievement.has("Lucky Guess"):
+                            text "Lucky Guess" color "#00ff00" size 30
+                            text "You cut the correct wire!" size 22
+                        else:
+                            text "Lucky Guess (Locked)" color "#808080" size 30
+                            text "???" size 22
+
 
 transform achievement_transform:
     on show:

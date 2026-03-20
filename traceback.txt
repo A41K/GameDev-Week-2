@@ -1,27 +1,23 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 230, in script
-    P "Well i have jackshit with a *maybe* I need something 100% or im 0%"
-TypeError: %o format: an integer is required, not TagQuotingDict
+  File "game/script.rpy", line 529, in script
+    jump after_wire_cut
+renpy.script.LabelNotFound: could not find label 'after_wire_cut'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/script.rpy", line 230, in script
-    P "Well i have jackshit with a *maybe* I need something 100% or im 0%"
-  File "renpy/ast.py", line 2925, in execute
-    Say.execute(self)
-    ~~~~~~~~~~~^^^^^^
-  File "renpy/ast.py", line 991, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/sayexports.py", line 118, in say
-    what = what % tag_quoting_dict
-           ~~~~~^~~~~~~~~~~~~~~~~~
-TypeError: %o format: an integer is required, not TagQuotingDict
+  File "game/script.rpy", line 529, in script
+    jump after_wire_cut
+  File "renpy/ast.py", line 1928, in execute
+    rv = renpy.game.script.lookup(target)
+         ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "renpy/script.py", line 1201, in lookup
+    raise LabelNotFound(original)
+renpy.script.LabelNotFound: could not find label 'after_wire_cut'.
 
 Windows-11-10.0.26200-SP0 AMD64
 Ren'Py 8.5.2.26010301
 Novel2 1.0
-Wed Mar 18 21:11:38 2026
+Fri Mar 20 19:19:33 2026
